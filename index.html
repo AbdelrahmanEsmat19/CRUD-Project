@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>Crud Project</title>
+    <!-- Icon -->
+    <link rel="icon" href="images/favicon.png" />
+    <!-- CSS Files -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
+"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <section
+      class="container d-flex flex-column text-center justify-content-center"
+    >
+      <h1 class="text-warning fw-bold display-4">
+        CRUD <span class="text-info">Project</span>
+      </h1>
+      <p class="text-white">"Create" | "Read" | "Update" | "Delete"</p>
+      <table class="table table-success table-striped-columns text-center">
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5
+                  class="modal-title text-bg-secondary bg-opacity-50 p-2"
+                  id="exampleModalLabel"
+                >
+                Fill out the information completely
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body p-3">
+                <div>
+                  <div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        oninput="validateInputs(this)"
+                        id="productName"
+                        placeholder="productName"
+                      />
+                      <label for="productName">Name</label>
+                      <div
+                        class="alert fw-bold d-none alert-danger mt-2 py-2"
+                        id="ProductAlert"
+                      >
+                        <small
+                          >Site name must contain at least 2 English characters
+                          , First character is capital , and all small and no
+                          symbols and Arabic!.</small
+                        >
+                      </div>
+                    </div>
+
+                    <div class="form-floating">
+                      <input
+                        type="number"
+                        class="form-control mb-3"
+                        oninput="validateInputs(this)"
+                        id="productPrice"
+                        placeholder="productPrice"
+                      />
+                      <label for="productPrice">Price</label>
+                      <div
+                        class="alert fw-bold d-none alert-danger mt-2 py-2"
+                        id="priceAlert"
+                      >
+                        <small
+                          >The price must be 5 digits or more and must not begin
+                          with a zero.</small
+                        >
+                      </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        list="categories"
+                        class="form-control"
+                        oninput="validateInputs(this)"
+                        id="productCategory"
+                        placeholder="productCategory"
+                      />
+                      <label for="productCategory">Category</label>
+                      <datalist id="categories">
+                        <option value="Mobile"></option>
+                        <option value="Laptop"></option>
+                        <option value="Watch"></option>
+                        <option value="TV"></option>
+                      </datalist>
+                      <div
+                        class="alert fw-bold d-none alert-danger mt-2 py-2"
+                        id="priceCategory"
+                      >
+                        <small>It should be as shown in the list!.</small>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        class="form-control"
+                        oninput="validateInputs(this)"
+                        accept=".jpg,.jpeg,.png"
+                        type="file"
+                        id="productImage"
+                      />
+                    </div>
+                    <div
+                      class="alert fw-bold d-none alert-danger mt-2 py-2"
+                      id="imageAlert"
+                    >
+                      <small
+                        >Choose image should be in [ jpg | jpeg| png ].</small
+                      >
+                    </div>
+
+                    <button
+                      class="btn btn-success w-100 text-white"
+                      type="submit"
+                      id="addButton"
+                    >
+                      Add Product
+                    </button>
+                    <button
+                      id="updateButton"
+                      class="btn w-100 btn-warning d-none"
+                    >
+                      Update Product
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <thead>
+          <div
+            class="manage rounded d-flex py-3 justify-content-md-between align-items-center py-2"
+          >
+            <div class="ms-4 text-white">
+              <h2>Manage <span class="fw-bold text-danger">Products</span></h2>
+            </div>
+            <div>
+              <input
+                id="searchInput"
+                oninput="searchProduct()"
+                placeholder="✎ Search"
+                type="search"
+                class="form-control w-75"
+              />
+            </div>
+
+            <div>
+              <button
+                class="me-4 btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                id="newProductButtton"
+              >
+                New Product
+              </button>
+            </div>
+          </div>
+        </thead>
+        <thead>
+          <th>#</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Image</th>
+          <th class="col-1">Actions</th>
+        </thead>
+        <tbody id="rowData" class="text-center"></tbody>
+      </table>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
