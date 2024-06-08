@@ -14,8 +14,6 @@ h2 {
   font-style: normal;
 }
 
-
-
 #exampleModal {
   transition: 0.5s ease-in-out;
 }
@@ -30,6 +28,7 @@ section {
 #rowData {
   vertical-align: middle;
 }
+
 
 #rowData img {
   width: 6rem;
