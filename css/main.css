@@ -27,6 +27,9 @@ section {
 .manage {
   background-color: #435d7d;
 }
+#rowData {
+  vertical-align: middle;
+}
 
 #rowData img {
   width: 6rem;
